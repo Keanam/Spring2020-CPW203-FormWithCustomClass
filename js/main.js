@@ -7,8 +7,13 @@ window.onload = function () {
     var addBtn = document.querySelector("input[type=button]");
     addBtn.onclick = addMovieShow;
 };
+function clearAllErrors() {
+    var errSummary = document.getElementById("validation-summary");
+    errSummary.innerText = "";
+}
 function addMovieShow() {
     console.log("Add AHHH was called");
+    clearAllErrors();
     if (isAllDataValid()) {
         var movieShow = getMovieShow();
         displayMovieShow(movieShow);
@@ -43,6 +48,32 @@ function displayMovieShow(myDisplay) {
     displayDiv.appendChild(displayHeading);
     displayDiv.appendChild(displayInfo);
 }
+function getInputById(id) {
+    return document.getElementById(id);
+}
 function isAllDataValid() {
-    return true;
+    var isValid = true;
+    var title = getInputById("title").value;
+    if (title == "") {
+        isValid = false;
+        addErrorMessage("Title is required");
+    }
+    var score = getInputById("score").value;
+    var scoreValue = parseFloat(score);
+    if (score == "" || isNaN(scoreValue) || scoreValue < 0 || scoreValue > 5) {
+        isValid = false;
+        addErrorMessage("Score is required! 0-5");
+    }
+    var rating = document.getElementById("rating").value;
+    if (rating == "") {
+        isValid = false;
+        addErrorMessage("You must choose a rating!");
+    }
+    return isValid;
+}
+function addErrorMessage(errMsg) {
+    var errSummary = document.getElementById("validation-summary");
+    var errItem = document.createElement("li");
+    errItem.innerText = errMsg;
+    errSummary.appendChild(errItem);
 }

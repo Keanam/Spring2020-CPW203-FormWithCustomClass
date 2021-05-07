@@ -11,8 +11,10 @@
 
     <h1>Add a Motion Picture</h1>
 
-    <div id="validation-summary">
-        <p>Errors go here...</p>
+    <div>
+        <ul id="validation-summary">
+
+        </ul>
     </div>
 
     <form>
@@ -26,12 +28,12 @@
 
         <label for="rating">Rated: </label>
         <select id="rating">
-            <option>Select Options</option>
-            <option>G</option>
-            <option>PG</option>
-            <option>PG-13</option>
-            <option>R</option>
-            <option>NC-17</option>
+            <option value="">Select Options</option>
+            <option value="G">General Audience</option>
+            <option value="PG">Parent Guidance</option>
+            <option value="PG-13">Parent Guidance for 13 and under</option>
+            <option value="R">Restricted</option>
+            <option value="NC-17">No one under 17 admitted</option>
         </select>
         <br>
 
