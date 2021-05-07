@@ -34,7 +34,7 @@ function addMovieShow(){
  * and returns it in a MotionPicture object
  */
 
-function getMovieShow():MovieShow{
+function getMovieShow():MotionPicture{
     let movieShow = new MotionPicture();
 
     // populate with data
@@ -65,8 +65,37 @@ function getMovieShow():MovieShow{
    return movieShow;
 }
 
-function displayMovieShow(myDisplay:MovieShow):void{
-    // TODO: Display video game below the form
+function displayMovieShow(myDisplay:MotionPicture):void{
+    // TODO: Display movie and show below the form
+    let displayDiv = document.getElementById("display");
+
+    // Create <h2> with motion title
+    let displayHeading = document.createElement("h2");
+    displayHeading.innerText = myDisplay.title;
+
+    // Create paragraph with display details
+    let displayInfo = document.createElement("p");
+    let mediaDisplay = "";
+    if(myDisplay.platform){
+        mediaDisplay = "This is a television series!";
+    }
+    else{
+        mediaDisplay = "This was in theaters!";
+    }
+    /*
+    displayInfo.innerText = myDisplay.title + " has an audience score of " +
+                            myDisplay.score + ". The recommended audience rating is " +
+                            myDisplay.rating + ". It is/was" + notDigitalDisplay + " in theaters";
+    */
+
+    displayInfo.innerText = `${myDisplay.title} has a rating of ${myDisplay.score}. 
+                            The recommended audience rating is ${myDisplay.rating}. 
+                            ${mediaDisplay}`;
+
+    // Add <h2> in the <div id="display">
+    displayDiv.appendChild(displayHeading);
+    // Add <p> game info
+    displayDiv.appendChild(displayInfo);
 }
 
 // ADD VALIDATION CODE

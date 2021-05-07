@@ -28,6 +28,20 @@ function getMovieShow() {
     return movieShow;
 }
 function displayMovieShow(myDisplay) {
+    var displayDiv = document.getElementById("display");
+    var displayHeading = document.createElement("h2");
+    displayHeading.innerText = myDisplay.title;
+    var displayInfo = document.createElement("p");
+    var mediaDisplay = "";
+    if (myDisplay.platform) {
+        mediaDisplay = "This is a television series!";
+    }
+    else {
+        mediaDisplay = "This was in theaters!";
+    }
+    displayInfo.innerText = myDisplay.title + " has a rating of " + myDisplay.score + ". \n                            The recommended audience rating is " + myDisplay.rating + ". \n                            " + mediaDisplay;
+    displayDiv.appendChild(displayHeading);
+    displayDiv.appendChild(displayInfo);
 }
 function isAllDataValid() {
     return true;
