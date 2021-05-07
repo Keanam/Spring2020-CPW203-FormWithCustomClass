@@ -7,6 +7,46 @@
     <title>Add Product Form</title>
 </head>
 <body>
-    
+
+    <h1>Add a Movie / Show</h1>
+
+    <div id="validation-summary">
+        <p>Errors go here...</p>
+    </div>
+
+    <form>
+        <label for="title">Title: </label>
+        <input id="title" type="text">
+        <br>
+
+        <label for="score">Score: </label>
+        <input id="score" type="text" placeholder="0-5">
+        <br>
+
+        <label for="rating">Rated: </label>
+        <select id="rating">
+            <option>Select Options</option>
+            <option>G</option>
+            <option>PG</option>
+            <option>PG-13</option>
+            <option>R</option>
+            <option>NC-17</option>
+        </select>
+        <br>
+
+        <label for="online">Netflix Exclusive?</label>
+        <input type="checkbox" id="online">
+        <br>
+
+        <label for="online">Hulu Only?</label>
+        <input type="checkbox" id="online">
+        <br>
+
+        <label for="online">Other Platform?</label>
+        <input type="checkbox" id="online">
+        <br>
+
+        <input type="button" value="Add New Movie">
+    </form>
 </body>
 </html>
